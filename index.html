@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07150f">
+  <title>DLS TOUR BD</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #07150f;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding-bottom: 85px;
+    }
+    header {
+      padding: 22px 18px;
+      background: #10271b;
+      border-bottom: 1px solid #28543b;
+    }
+    header h1 { margin: 0; color: #53e38b; }
+    header p { color: #b8c9be; margin-bottom: 0; }
+    .hero {
+      margin: 18px;
+      padding: 24px 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg,#164d32,#10271b);
+    }
+    .hero h2 { font-size: 27px; margin: 8px 0; }
+    .hero p { color: #c6dbce; }
+    .section { padding: 0 18px; }
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .card {
+      background: #10271b;
+      border: 1px solid #28543b;
+      border-radius: 14px;
+      padding: 16px 12px;
+    }
+    .card h3 { margin: 8px 0; }
+    .card p { color: #b8c9be; font-size: 13px; }
+    .price { color: #53e38b; font-weight: bold; }
+    button {
+      background: #53e38b;
+      color: #07150f;
+      border: 0;
+      border-radius: 9px;
+      padding: 11px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .card button { width: 100%; }
+    #details {
+      margin: 16px 18px;
+      padding: 16px;
+      background: #10271b;
+      border-radius: 12px;
+      display: none;
+    }
+    nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background: #10271b;
+      border-top: 1px solid #28543b;
+      padding: 12px 2px;
+    }
+    nav button {
+      background: transparent;
+      color: white;
+      padding: 8px 4px;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⚽ DLS TOUR BD</h1>
+    <p>Your Football Tournament Hub</p>
+  </header>
+
+  <div class="hero">
+    <div>🏆 WELCOME TO</div>
+    <h2>DLS TOUR BD</h2>
+    <p>Play matches. Join leagues. Climb the table.</p>
+    <button onclick="showPage('Tournaments')">
+      Explore Tournaments
+    </button>
+  </div>
+
+  <div class="section">
+    <h2>🏆 Tournaments</h2>
+    <div class="cards">
+      <div class="card">
+        <div>⚡</div>
+        <h3>Mini Tournament</h3>
+        <p>Quick football matches</p>
+        <p class="price">Entry: ৳10</p>
+        <p>Prize: ৳17</p>
+        <button onclick="showDetails('Mini Tournament','10','17')">
+          View Details
+        </button>
+      </div>
+      <div class="card">
+        <div>👑</div>
+        <h3>Pro League</h3>
+        <p>Compete for the top rank</p>
+        <p class="price">League Mode</p>
+        <button onclick="showPage('Pro League')">
+          View League
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="details"></div>
+
+  <nav>
+    <button onclick="showPage('Home')">⌂<br>Home</button>
+    <button onclick="showPage('Tournaments')">🏆<br>Tournaments</button>
+    <button onclick="showPage('Matches')">⚽<br>Matches</button>
+    <button onclick="showPage('Points Table')">📊<br>Points</button>
+    <button onclick="showPage('Profile')">👤<br>Profile</button>
+  </nav>
+
+  <script>
+    function showDetails(name, fee, prize) {
+      const box = document.getElementById('details');
+      box.style.display = 'block';
+      box.innerHTML = '<h3>' + name + '</h3>' +
+        '<p>Entry Fee: ৳' + fee + '</p>' +
+        '<p>Prize: ৳' + prize + '</p>' +
+        '<p>Demo preview only. Real payments are not enabled.</p>';
+      box.scrollIntoView({behavior: 'smooth'});
+    }
+
+    function showPage(page) {
+      const box = document.getElementById('details');
+      box.style.display = 'block';
+      box.innerHTML = '<h3>' + page + '</h3>' +
+        '<p>This section is being built.</p>';
+      box.scrollIntoView({behavior: 'smooth'});
+    }
+  </script>
+</body>
+</html>
